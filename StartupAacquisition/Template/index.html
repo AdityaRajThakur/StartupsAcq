@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <title>Startup-Acquisition-Status-Prediction</title>
+</head>
+
+<body>
+    <div class='container-fluid mt-2'>
+        <div class='mb-2 border rounded  '>
+            <nav class="navbar bg-primary rounded " data-bs-theme="dark">
+                <div class="container-fluid ">
+                    <a class="navbar-brand text-light" href="#">Startup Acquisition Status Prediction</a>
+                </div>
+            </nav>
+        </div>
+        <div class = ''>
+            <!-- #'founded_at', 'first_funding_at', 'last_funding_at', 'funding_rounds', 'funding_total_usd', 'first_milestone_at', 'last_milestone_at', 'milestones', 'relationships' -->
+
+            <form class='' , method='post' action = ''>
+                {% csrf_token %}
+                <div class='row d-flex justify-content-center'>
+                    <input class="form-control col-3 ml-1 mb-2 p-1" type="number" placeholder="Enter Founded At"
+                        aria-label="readonly input example" name = 'Founded'>
+                    <input class="form-control col-3 ml-1 mb-2 p-1" type="number" placeholder="Enter First Funding At"
+                        aria-label="readonly input example" name = 'funding_first'>
+                    <input class="form-control col-3 ml-1 mb-2 p-1" type="number" placeholder="Enter Last Funding At"
+                        aria-label="readonly input example" name = 'funding_last'>
+                    <input class="form-control col-3 ml-1 mb-2 p-1" type="number" placeholder="Enter Funding Rounds"
+                        aria-label="readonly input example" name = 'funding_rounds'>
+                    <input class="form-control col-3 ml-1 mb-2 p-1" type="number" placeholder="Enter Funding total USD"
+                        aria-label="readonly input example" name = 'FundingUSD'>
+                    <input class="form-control col-3 ml-1 mb-2 p-1" type="number" placeholder="Enter First Milestone"
+                        aria-label="readonly input example" name = 'MilestoneFirst'>
+                    <input class="form-control col-3 ml-1 mb-2 p-1" type="number" placeholder="Enter Last Milestone"
+                        aria-label="readonly input example" name = 'MilestoneLast'>
+                    <input class="form-control col-3 ml-1 mb-2 p-1" type="number" placeholder="No Of Milestone"
+                        aria-label="readonly input example" name = 'no_milestone'>
+                    <input class="form-control col-3 ml-1 mb-2 p-1" type="number" placeholder="Relationships"
+                        aria-label="readonly input example" name = 'relationships'>
+                </div>
+                <div class='row mt-2 d-flex justify-content-center'>
+                    <button type="submit" class="btn btn-primary">Predict</button>
+                </div>
+            </form>
+        </div>
+        {% if output %}
+        <div class = 'row bg-primary m-1 pl-2 border rounded'>
+            <h4>
+                Predicted Value : {{output}}
+            </h4>
+        </div>
+        {% endif %}
+    </div>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+
+</html>
